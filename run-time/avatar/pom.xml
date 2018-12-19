@@ -20,7 +20,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.sun.faces.extensions</groupId>
+  <groupId>org.glassfish.faces.extensions</groupId>
   <artifactId>jsf-extensions-dynamic-faces</artifactId>
   <packaging>jar</packaging>
   <name>jsf-extensions-dynamic-faces</name>
@@ -30,7 +30,7 @@
   </description>
 
   <parent>
-    <groupId>com.sun.faces.extensions.maven</groupId>
+    <groupId>org.glassfish.faces.extensions.maven</groupId>
     <artifactId>jsf-extensions-master</artifactId>
     <version>0.1.2-SNAPSHOT</version>
     <relativePath>../../maven/master-pom/pom.xml</relativePath>
@@ -163,7 +163,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.sun.faces.extensions</groupId>
+      <groupId>org.glassfish.faces.extensions</groupId>
       <artifactId>jsf-extensions-common</artifactId>
       <version>0.1.2-SNAPSHOT</version>
       <scope>provided</scope>

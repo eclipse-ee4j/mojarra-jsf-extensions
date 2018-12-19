@@ -23,7 +23,7 @@
         <version>1.0.5</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.sun.faces.extensions.maven</groupId>
+  <groupId>org.glassfish.faces.extensions.maven</groupId>
   <artifactId>jsf-extensions-master</artifactId>
   <packaging>pom</packaging>
   <name>Master POM</name>

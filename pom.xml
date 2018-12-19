@@ -116,7 +116,7 @@
       <scope>provided</scope>
     </dependency>  
     <dependency>
-      <groupId>com.sun.faces.extensions</groupId>
+      <groupId>org.glassfish.faces.extensions</groupId>
       <artifactId>jsf-extensions-dynamic-faces</artifactId>
       <version>0.1.2-SNAPSHOT</version>
     </dependency>
