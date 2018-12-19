@@ -138,6 +138,12 @@
     </plugins>
   </reporting>
 
+  <modules>
+     <module>maven/master-pom</module>
+     <module>run-time/common</module>
+     <module>run-time/avatar</module>
+   </modules>
+
   <profiles>
     <profile>
       <id>default</id>
