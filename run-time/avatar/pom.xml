@@ -33,6 +33,7 @@
     <groupId>com.sun.faces.extensions.maven</groupId>
     <artifactId>jsf-extensions-master</artifactId>
     <version>0.1.2-SNAPSHOT</version>
+    <relativePath>../../maven/master-pom/pom.xml</relativePath>
   </parent>
 
   <scm>
