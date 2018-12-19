@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+    Copyright (c) 1998, 2018 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+
+-->
+
+</head>
+<body bgcolor="white">
+
+<p>JSF Extensions brings first class support for AJAX to JSF.  This is
+achieved by declaring an override for the
+<code>javax.faces.ViewRoot</code> <code>component-type</code>.  The
+implementation for this class extends <code>UIViewRoot</code> and allows
+for lifecycle processing over one or more subtrees of the view,
+depending on client requirements.  Custom JSF <code>Lifecycle</code> and
+<code>StateManager</code> implementations are provided to support the
+<code>UIViewRoot</code> subclass in its processing.  These decorate
+their respectieve default implementations and add a small amount of
+functionality to support AJAX.  </p>
+
+<p>The principal classes for supporting AJAX include:</p>
+
+<dl>
+
+<dt><p>{@link com.sun.faces.extensions.avatar.components.PartialTraversalViewRoot}</p>
+</dt>
+
+<dd><p>Extend <code>UIViewRoot</code> and allow for partial view processing.</p>
+</dd>
+
+<dt><p>{@link com.sun.faces.extensions.avatar.lifecycle.PartialTraversalLifecycle}</p>
+</dt>
+
+<dd><p>Decorate the default lifecycle and take special case action when
+an AJAX request is detected.  Otherwise, the default lifecycle is
+used.</p>
+</dd>
+
+<dt><p>{@link com.sun.faces.extensions.avatar.lifecycle.AsyncResponse}</p>
+</dt>
+
+<dd><p>ThreadLocal accessible class for interacting with the AJAX
+response as it is being created.</p>
+</dd>
+
+<dt>{@link com.sun.faces.extensions.avatar.application.DeferredStateManager}
+</dt>
+
+<dd><p>Decorate the default <code>StateManager</code> to take no action
+during an AJAX request.  This is necessary because the state saving is
+initiated in the <code>PartialTraversalLifecycle</code>.</p>
+</dd>
+
+<dt><p>{@link com.sun.faces.extensions.avatar.event.EventCallback}</p>
+</dt>
+
+<dd><p><code>javax.faces.components.ContextCallback</code> implementation
+that allows the client to send events to the JSF view.</p>
+</dd>
+
+<dt><p>{@link com.sun.faces.extensions.avatar.components.ScriptsComponent}</p>
+</dt>
+
+<dd><p>Renders necessary script elements in the browser.  Exposed via
+custom tag.</p>
+</dd>
+
+</dl>
+
+
+</body>
+</html>

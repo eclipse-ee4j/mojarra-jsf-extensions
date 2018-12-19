@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+    Copyright (c) 1998, 2018 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+
+-->
+
+</head>
+<body bgcolor="white">
+
+<p>This is a set of non-UI components that build on top of JSF to
+provide additional runtime features.  To use these components, simply
+place the <b>jsf-components.jar</b> in your <code>WEB-INF/lib</code>
+directory or place it in the shared lib directory of your container.
+These components use the self configuration mechanisms provided by the
+JSF specification to automatically install the components into the JSF
+runtime.</p>
+
+<p>The following components are available in the current release.</p>
+
+	<ul>
+
+	  <li><p>Ruby on Rails-like Flash concept, exposed via the EL.</p> 
+
+          <p>Please see <code><a
+          href="com/sun/faces/el/FlashELResolver.html">FlashELResolver</a>.</code></p>
+
+          </li>
+
+	  <li><p><code>PhaseListener</code> for loading non-Java class
+	  resources out of a JAR and into a browser, such as images,
+	  JavaScript files, and style-sheets.</p>
+
+          <p>Please see <code><a
+          href="com/sun/faces/util/ResourcePhaseListener.html">ResourcePhaseListener</a>.</code></p>
+
+          </li>
+
+	</ul>
+
+</body>
+</html>

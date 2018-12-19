@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+
+-->
+
+<project name="JavaServer Faces Technology Extensions">
+    <bannerLeft>
+        <name>Powered By Java</name>
+        <src>images/corpweb-power.gif</src>
+        <href>http://java.sun.com/</href>
+    </bannerLeft>
+    <bannerRight>
+        <name>Runs on the Java EE SDK</name>
+        <src>images/javaeesdkdownload.gif</src>
+        <href>http://java.sun.com/javaee/downloads/</href>
+    </bannerRight>
+    <publishDate format="yyyy MM dd" />
+    <body>
+      <links>
+          <item name="FAQ" href="http://wiki.java.net/bin/view/Projects/JsfExtensionsFaq" />
+          <item name="JSF" href="http://java.sun.com/javaee/javaserverfaces/" />
+          <item name="Sun JSF" href="http://javaserverfaces.dev.java.net/" />
+          <item name="Java EE" href="http://java.sun.com/javaee/downloads/index.jsp" />
+      </links>
+
+    <menu name="JSF Extensions">
+        <item name="home" href="/index.html" />
+        <item name="FAQ" href="http://wiki.java.net/bin/view/Projects/JsfExtensionsFaq" />
+        <item name="Join Project"           href="http://jsf-extensions.dev.java.net/servlets/ProjectMembershipRequest"/>
+        <item name="Watch Project"           href="http://jsf-extensions.dev.java.net/servlets/WatchProject"/>
+        <item name="Download"           href="http://jsf-extensions.dev.java.net/servlets/ProjectDocumentList"/>
+<!--
+        <item name="Combined API Docs"           collapse="false">
+          <item name="JavaDoc" href="http://jsf-extensions.dev.java.net/docs/apidocs/index.html"/>
+          <item name="TagLibraryDoc" href="http://jsf-extensions.dev.java.net/docs/tlddoc/index.html"/>
+        </item>
+-->
+        <item name="Issue Tracking"     href="http://jsf-extensions.dev.java.net/servlets/ProjectIssues"/>
+        <item name="Version Control - SCM"     href="http://jsf-extensions.dev.java.net/source/browse/jsf-extensions/"/>
+        <item name="Building"           href="http://wiki.java.net/bin/view/Projects/JsfExtensionsFaq#How_do_I_Build_It_"/>
+        <item name="Wiki"               href="http://wiki.java.net/bin/view/Projects/Jsf-extensions"/>
+        <item name="Announcements"      href="http://jsf-extensions.dev.java.net/servlets/ProjectNewsList"/>
+        <item name="Mailing Lists"      href="http://jsf-extensions.dev.java.net/servlets/ProjectMailingListList" />
+        <item name="Slides and Screencasts"  href="/slides.html" />
+    </menu>
+
+    <menu name="Runtime Features">
+        <item name="Ajax" href="/features-ajax.html" collapse="false">
+          <item name="Overview"    href="/features-ajax.html"/>
+          <item name="Getting Started" href="/gettingstarted-ajax.html"/>
+          <item name="Reference"   href="/reference-ajax.html"/>
+          <item name="JavaDoc"     href="/ajax/apidocs/index.html"/>
+          <item name="TagLibraryDoc"   href="/ajax/tlddocs/index.html"/>
+        </item>
+        <item name="Flash"     href="/features-flash.html"/>
+        <item name="Zero Deployment Time"     href="/features-zdt.html"/>
+    </menu>
+
+    <menu name="Test Time Features">
+        <item name="Test"    href="/features-test.html"/>
+    </menu>
+
+    ${reports}
+
+  </body>
+</project>
+
+
+
+
+
+

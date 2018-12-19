@@ -1,0 +1,169 @@
+<!--
+
+    Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+        <groupId>org.eclipse.ee4j</groupId>
+        <artifactId>project</artifactId>
+        <version>1.0.5</version>
+    </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sun.faces.extensions</groupId>
+  <artifactId>jsf-extensions</artifactId>
+  <version>0.1.2-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <description>
+
+    JCP Standard compliant extensions to JavaServer Faces Technology,
+    including an implementation of the Avatar AJAX architecture.
+
+  </description>
+
+  <name>JavaServer(tm) Faces Extensions</name>
+  <url>https://jsf-extensions.dev.java.net/</url>
+
+  <scm>
+    <connection>scm:git:ssh://git@github.com/eclipse-ee4j/mojarra-jsf-extensions.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/eclipse-ee4j/mojarra-jsf-extensions.git</developerConnection>
+    <url>https://github.com/eclipse-ee4j/mojarra-jsf-extensions</url>
+  </scm>
+
+  <licenses>
+        <license>
+            <name>EPL 2.0</name>
+            <url>http://www.eclipse.org/legal/epl-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+        <license>
+            <name>GPL2 w/ CPE</name>
+            <url>https://www.gnu.org/software/classpath/license.html</url>
+            <distribution>repo</distribution>
+        </license>
+  </licenses>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+    <plugins>
+       <plugin>
+	 <artifactId>maven-antrun-plugin</artifactId>
+	 <executions>
+	   <execution>
+             <id>javadoc</id>
+	     <phase>generate-resources</phase>
+	     <configuration>
+	       <tasks>
+                 <property name="cp" refid="maven.compile.classpath" />
+                 <echo message="${cp}" />
+                 <echo message="${pom.version}" />
+                 <ant antfile="src/site/javadoc-build.xml" inheritAll="true"
+                      inheritRefs="true">
+                   <property name="pom.version" value="${pom.version}" />
+                   <property name="pom.artifactId" value="${pom.artifactId}" />
+                 </ant>
+	       </tasks>
+	     </configuration>
+	     <goals>
+	       <goal>run</goal>
+	     </goals>
+	   </execution>
+	 </executions>
+       </plugin>
+       <plugin>
+	 <groupId>org.apache.maven.plugins</groupId>
+	 <artifactId>maven-war-plugin</artifactId>
+	 <version>2.0</version>
+       </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>javaee</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>5</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.shale</groupId>
+      <artifactId>shale-remoting</artifactId>
+      <version>1.0.3</version>
+      <exclusions>
+        <exclusion>
+          <groupId>myfaces</groupId>
+          <artifactId>myfaces-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>myfaces</groupId>
+          <artifactId>myfaces-impl</artifactId>
+        </exclusion>
+      </exclusions>
+      <scope>provided</scope>
+    </dependency>  
+    <dependency>
+      <groupId>com.sun.faces.extensions</groupId>
+      <artifactId>jsf-extensions-dynamic-faces</artifactId>
+      <version>0.1.2-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependencies</report>
+              <report>license</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <profiles>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+	<module>maven/master-pom</module>
+	<module>run-time/common</module>
+	<module>run-time/avatar</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>samples</id>
+      <modules>
+	<module>maven/master-pom</module>
+	<module>run-time/common</module>
+	<module>run-time/avatar</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>site</id>
+      <modules>
+      </modules>
+    </profile>
+
+  </profiles>
+</project>
+

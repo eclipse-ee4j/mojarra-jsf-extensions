@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    Copyright (c) 2005, 2018 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+
+-->
+
+<project name="jsf-extensions-site-javadoc" default="main">
+
+  <description>
+
+    DO NOT RUN THIS ANT BUILD FILE DIRECTLY.  It is invoked from the top
+    level pom.
+
+    After several hours of fighting maven 2 regarding getting javadoc the
+    way I want it for the site, I have decided to revert to ant for the
+    javadoc.  This is the same conclusion reached by others, as reported
+    in this blog entry:
+    http://netzooid.com/blog/2006/02/28/maven-2-reflections/
+  </description>
+
+  <property name="site.target" value="${basedir}/target/site" />
+  <property name="ajax.module.dir" 
+            value="${basedir}/run-time/avatar" />
+  <property name="ajax.src.dir" 
+            value="${ajax.module.dir}/src/main/java" />
+  <property name="ajax.resources.dir" 
+            value="${ajax.module.dir}/src/main/resources" />
+  <property name="common.src.dir" 
+            value="${basedir}/run-time/common/src/main/java" />
+  <property name="flash.src.dir" 
+            value="${basedir}/run-time/flash/src/main/java" />
+  <property name="test.src.dir" 
+            value="${basedir}/test-time/src/main/java" />
+
+  <property name="ajax.dest.dir" value="${site.target}/ajax" />
+  <property name="ajax.javadoc.dest.dir" value="${ajax.dest.dir}/apidocs" />
+  <property name="ajax.tlddoc.dest.dir" value="${ajax.dest.dir}/tlddocs" />
+
+
+  <target name="ajax">
+
+    <mkdir dir="${ajax.javadoc.dest.dir}" />
+    <mkdir dir="${ajax.tlddoc.dest.dir}" />
+
+    <javadoc packagenames="com.sun.faces.extensions.ajax"
+                 destdir="${ajax.javadoc.dest.dir}"
+                 Overview="${ajax.src.dir}/overview.html"
+                 private="${javadoc.private}"
+                 stylesheetfile="src/site/resources/css/site.css"
+                 protected="${javadoc.protected}"
+                 windowtitle="${pom.artifactId} (${pom.version})"
+                 source="1.5"
+                 doctitle="${pom.artifactId} (${pom.version})"
+                 bottom="Copyright &#169; 2002-2006 Sun Microsystems, Inc. All Rights Reserved.">
+            <fileset dir="${ajax.src.dir}">
+                <include name="**/*.java"/>
+                <exclude name="**/FastWriter*.java" />
+            </fileset>
+            <fileset dir="${common.src.dir}">
+                <include name="**/*.java"/>
+            </fileset>
+            <classpath refid="maven.compile.classpath" />
+    </javadoc>
+
+    <java fork="true" classname="com.sun.tlddoc.TLDDoc" 
+                      classpathref="maven.compile.classpath">
+        <arg line="-d ${ajax.tlddoc.dest.dir}"/>
+        <arg value="${ajax.resources.dir}/jsf-ext-dynafaces.tld"/>
+    </java>
+
+    <delete file="target/site/ajax/tlddocs/stylesheet.css" />
+    <copy tofile="target/site/ajax/tlddocs/stylesheet.css" 
+          file="src/site/resources/css/site.css" />
+
+ 
+  </target>
+
+  <target name="main" depends="ajax">
+  </target>
+
+</project>
