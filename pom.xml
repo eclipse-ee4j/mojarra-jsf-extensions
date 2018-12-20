@@ -20,12 +20,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
-        <groupId>org.eclipse.ee4j</groupId>
-        <artifactId>project</artifactId>
-        <version>1.0.5</version>
-    </parent>
+       <groupId>org.glassfish.faces.extensions.maven</groupId>
+       <artifactId>jsf-extensions-master</artifactId>
+       <version>0.1.2-SNAPSHOT</version>
+        <relativePath>maven/master-pom/pom.xml</relativePath>
+  </parent>
+
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.sun.faces.extensions</groupId>
+  <groupId>org.glassfish.faces.extensions</groupId>
   <artifactId>jsf-extensions</artifactId>
   <version>0.1.2-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -116,7 +118,7 @@
       <scope>provided</scope>
     </dependency>  
     <dependency>
-      <groupId>com.sun.faces.extensions</groupId>
+      <groupId>org.glassfish.faces.extensions</groupId>
       <artifactId>jsf-extensions-dynamic-faces</artifactId>
       <version>0.1.2-SNAPSHOT</version>
     </dependency>
@@ -137,6 +139,12 @@
       </plugin>
     </plugins>
   </reporting>
+
+  <modules>
+     <module>maven/master-pom</module>
+     <module>run-time/common</module>
+     <module>run-time/avatar</module>
+   </modules>
 
   <profiles>
     <profile>
