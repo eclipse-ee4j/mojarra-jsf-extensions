@@ -22,14 +22,14 @@
   <parent>
        <groupId>org.glassfish.faces.extensions.maven</groupId>
        <artifactId>jsf-extensions-master</artifactId>
-       <version>0.1.2-SNAPSHOT</version>
+       <version>0.1.2</version>
         <relativePath>maven/master-pom/pom.xml</relativePath>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.glassfish.faces.extensions</groupId>
   <artifactId>jsf-extensions</artifactId>
-  <version>0.1.2-SNAPSHOT</version>
+  <version>0.1.2</version>
   <packaging>pom</packaging>
   <description>
 
@@ -120,7 +120,7 @@
     <dependency>
       <groupId>org.glassfish.faces.extensions</groupId>
       <artifactId>jsf-extensions-dynamic-faces</artifactId>
-      <version>0.1.2-SNAPSHOT</version>
+      <version>0.1.2</version>
     </dependency>
   </dependencies>
   <reporting>
